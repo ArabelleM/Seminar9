@@ -3,40 +3,40 @@
 
 // Принимаем, что N всегда больше М
 
-//using System.Runtime;
+
 
 Console.Write("Enter M: ");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Enter N: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-DateTime dateV1 = DateTime.Now;
+
 // v1
-int[] arrayMN = new int[n - m - 1];
-for(int i = m + 1; i < n; i++) {
-    arrayMN[i - m - 1] = i;
+int[] arrayMN = new int[n - m + 1];
+for(int i = m; i < n + 1; i++) {
+    arrayMN[i - m] = i;
 }
 Console.WriteLine(string.Join("; ", arrayMN));
-Console.WriteLine(DateTime.Now - dateV1);
 
-
-DateTime dateV2 = DateTime.Now;
 //v2
-for(int i = m + 1; i < n; i++) {
-    if (i == n - 1) Console.WriteLine(i);
+for(int i = m; i < n + 1; i++) {
+    if (i == n ) Console.WriteLine(i);
     else Console.Write(i + "; ");
 }
-Console.WriteLine(DateTime.Now - dateV2);
 
-DateTime dateV3 = DateTime.Now;
 //v3
 void RecMN (int m1, int n1) {
-    if (m1 + 1 >= n1 - 1) Console.WriteLine(m1 + 1);
+    if (m1 == n1) Console.WriteLine(m1);
     else {
-        Console.Write((m1 + 1) + "; ");
+        Console.Write((m1) + "; ");
         RecMN (m1 + 1, n1);
     }
 }
 RecMN(m, n);
-Console.WriteLine(DateTime.Now - dateV3);
 
+//v4
+while (m <= n) {
+    if (m == n) Console.WriteLine(m);
+    else Console.Write(m + "; ");
+    m++;
+}
